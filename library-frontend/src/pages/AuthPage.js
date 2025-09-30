@@ -1,10 +1,12 @@
 import React, { useState } from "react";
-import axios from "axios";
-import InputForm from "./Input/inputForm";
-import API_ENDPOINTS from "../config/apiConfig";
+import { useNavigate } from "react-router-dom";
 import { FaCheckCircle } from "react-icons/fa";
+import API_ENDPOINTS from "../config/apiConfig";
+import axios from "axios";
+import InputForm from "../components/Input/inputForm";
 
 const AuthPage = () => {
+  const navigate = useNavigate();
   const [isLogin, setIsLogin] = useState(true); // State untuk berpindah mode
   const [fullname, setFullname] = useState("");
   const [email, setEmail] = useState("");
@@ -36,11 +38,11 @@ const AuthPage = () => {
 
   const switchMode = () => {
     setIsLogin(!isLogin);
-    setError(""); // Bersihkan error saat berpindah
-    setEmail(""); // Kosongkan Email
-    setPassword(""); // Kosongkan Password
-    setConfirmPassword(""); // Kosongkan Password
-    setFullname(""); // Kosongkan Nama Lengkap (penting untuk Registrasi)
+    setError("");
+    setEmail("");
+    setPassword("");
+    setConfirmPassword("");
+    setFullname("");
   };
 
   const handleSubmit = async (e) => {
@@ -50,8 +52,8 @@ const AuthPage = () => {
 
     if (!isLogin && password !== confirmPassword) {
       setError("Password dan Konfirmasi Password tidak cocok!");
-      setLoading(false); // Reset loading state
-      return; // Stop the function immediately
+      setLoading(false);
+      return;
     }
 
     const endpoint = isLogin ? API_ENDPOINTS.login : API_ENDPOINTS.register;
@@ -65,8 +67,9 @@ const AuthPage = () => {
       if (isLogin) {
         const token = response.data.token;
         localStorage.setItem("token", token);
-        // notif success login (saat ini nnti akan dibuat component success notification)
+
         alert("Login Berhasil! Mengarahkan ke dashboard...");
+        navigate("/admin/dashboard", { replace: true });
       } else {
         alert("Registrasi Berhasil! Silakan Login.");
         setIsLogin(true);
@@ -177,7 +180,6 @@ const AuthPage = () => {
                 >
                   <PasswordGuidance passwordStrength={passwordStrength} />
 
-                  {/* Optional: Tambahkan segitiga penunjuk (pointer) */}
                   <div className="absolute left-3 -top-2 w-4 h-4 bg-white transform rotate-45 border-t border-l border-gray-200" />
                 </div>
               )}
@@ -196,7 +198,7 @@ const AuthPage = () => {
               type="password"
               value={confirmPassword}
               onChange={(e) => setConfirmPassword(e.target.value)}
-              required
+              required={!isLogin}
               showToggle={confirmPassword}
             />
           </div>
