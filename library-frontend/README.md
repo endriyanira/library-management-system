@@ -1,70 +1,63 @@
-# Getting Started with Create React App
+# 📚 Library Management System (LMS) - Frontend
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Aplikasi _frontend_ ini adalah _dashboard_ administrasi untuk mengelola koleksi buku (CRUD) dan anggota perpustakaan. Dibangun menggunakan **ReactJS** dan distyle dengan **Tailwind CSS** .
 
-## Available Scripts
+## Fitur Utama
 
-In the project directory, you can run:
+Aplikasi ini berfokus pada pengalaman Pustakawan (Admin) dengan implementasi utama:
 
-### `npm start`
+1. **Sistem Otentikasi Penuh:** Login/Logout dengan proteksi JWT.
+2. **Auth Guard:** Melindungi rute admin, hanya pengguna terotentikasi yang dapat mengakses _dashboard_ .
+3. **Admin Layout:** Tata letak yang konsisten (Sidebar & Header) untuk navigasi _dashboard_ .
+4. **Manajemen Buku (CRUD: Read):**
+   - Mengambil dan menampilkan 500+ data buku dari API.
+   - **Server-Side Pagination:** Efisien memuat data (25 _item_ per halaman) untuk performa optimal.
+   - Fitur Pencarian dan Filter (Siap diimplementasikan di _frontend_ ).
+5. **Desain Responsif:** Dibuat dengan Tailwind CSS untuk tampilan yang bersih dan modern.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## 🛠️ Teknologi yang Digunakan
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- **Framework:** React.js
+- **Styling:** Tailwind CSS (untuk _styling_ cepat dan _mobile-first_ )
+- **Routing:** React Router DOM (v6+)
+- **HTTP Client:** Axios (untuk interaksi dengan REST API _backend_ )
 
-### `npm test`
+## 🚀 Instalasi dan Menjalankan Proyek
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Ikuti langkah-langkah ini untuk menjalankan proyek secara lokal.
 
-### `npm run build`
+#### Prasyarat
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Pastikan Anda memiliki Node.js (disarankan versi LTS) dan npm/yarn terinstal.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+1. Clone Repository:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+   ```bash
+   git clone [URL_REPOSITORY_ANDA]
+   cd [NAMA_FOLDER_PROYEK]
+   ```
 
-### `npm run eject`
+2. Instal Dependensi:
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+   ```bash
+   npm install
+   # ATAU
+   yarn install
+   ```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+3. Konfigurasi Variabel Lingkungan
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+   ```bash
+   # .env
+   REACT_APP_API_BASE_URL=http://localhost:8080/api
+   ```
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+   (Pastikan port ini sesuai dengan port tempat _backend_ Anda berjalan)
 
-## Learn More
+4. Jalankan Aplikasi:
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+```bash
+   npm start
+   # ATAU
+   yarn start
+```
