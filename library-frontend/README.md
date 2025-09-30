@@ -56,8 +56,8 @@ Pastikan Anda memiliki Node.js (disarankan versi LTS) dan npm/yarn terinstal.
 
 4. Jalankan Aplikasi:
 
-```bash
+   ```bash
    npm start
    # ATAU
    yarn start
-```
+   ```
